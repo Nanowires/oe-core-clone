@@ -11,6 +11,7 @@ RDEPENDS:${PN} = "${PN}-inittab"
 
 GITHUB_BASE_URI = "https://github.com/slicer69/${BPN}/releases/"
 SRC_URI = "${GITHUB_BASE_URI}/download/${PV}/${BP}.tar.xz \
+           file://install.patch \
            file://crypt-lib.patch \
            file://pidof-add-m-option.patch \
            file://realpath.patch \

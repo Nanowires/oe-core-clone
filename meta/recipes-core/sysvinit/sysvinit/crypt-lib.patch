@@ -15,10 +15,10 @@ Upstream-Status: Inappropriate [configuration]
  1 file changed, 2 insertions(+), 9 deletions(-)
 
 diff --git a/src/Makefile b/src/Makefile
-index 21cbb2e..a2c103c 100644
+index 6a66d27..48b7828 100644
 --- a/src/Makefile
 +++ b/src/Makefile
-@@ -95,15 +95,8 @@ endif
+@@ -102,15 +102,8 @@ endif
  ROOT	?= $(DESTDIR)
  
  # Additional libs for GNU libc.
