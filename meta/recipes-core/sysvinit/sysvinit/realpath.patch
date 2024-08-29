@@ -12,10 +12,27 @@ Upstream-Status: Inappropriate [Linux specific]
 Signed-off-by: Khem Raj <raj.khem@gmail.com>
 
 ---
+ src/killall5.c   | 4 ++--
  src/mountpoint.c | 1 +
  src/wall.c       | 1 +
- 2 files changed, 2 insertions(+)
+ 3 files changed, 4 insertions(+), 2 deletions(-)
 
+diff --git a/src/killall5.c b/src/killall5.c
+index 34d656b..bc19d7f 100644
+--- a/src/killall5.c
++++ b/src/killall5.c
+@@ -910,9 +910,9 @@ int matches(PROC *o, PROC *p)
+ 	char *oargv1, *pargv1;
+ 	if ((o->argv0 && p->argv0 && !strcmp(o->argv0,p->argv0))) {
+ 		if (o->argv1 && p->argv1) {
+-			if ((oargv1 = canonicalize_file_name(o->argv1)) == NULL)
++			if ((oargv1 = realpath(o->argv1, NULL)) == NULL)
+ 				oargv1 = strdup(o->argv1);
+-			if ((pargv1 = canonicalize_file_name(p->argv1)) == NULL)
++			if ((pargv1 = realpath(p->argv1, NULL)) == NULL)
+ 				pargv1 = strdup(p->argv1);
+ 			if (! strcmp(oargv1, pargv1)) {
+ 				ret = 1;
 diff --git a/src/mountpoint.c b/src/mountpoint.c
 index 184b1f6..c55b0df 100644
 --- a/src/mountpoint.c
